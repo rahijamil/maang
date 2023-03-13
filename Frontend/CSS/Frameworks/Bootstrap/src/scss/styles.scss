@@ -1,0 +1,172 @@
+// Import Bootstrap variables and mixins
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// Override the primary color
+$primary: #7330f9;
+
+// Import the rest of Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Use the primary color to set the background color of an element
+.bg-primary,
+.btn-primary {
+  background-color: $primary !important;
+}
+
+.btn-primary {
+  &:hover {
+    background-color: darken($color: $primary, $amount: 5%) !important;
+  }
+}
+
+.navbar {
+  box-shadow: 2px 2px 32px rgba(0 0 0 / 30%);
+}
+
+.hero-section {
+  background: radial-gradient(circle, #fff4ca 0%, #92bdfec4 100%);
+  min-height: 100vh;
+}
+
+.bd-clipboard + .highlight,
+.bd-edit + .highlight {
+  margin-top: 0;
+}
+.bd-code-snippet .highlight {
+  margin-bottom: 0;
+}
+
+.highlight pre {
+  padding: 0;
+  margin-top: 0.625rem;
+  margin-right: 1.875rem;
+  margin-bottom: 0.625rem;
+  white-space: pre;
+  background-color: transparent;
+  border: 0;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: auto;
+  font-size: 0.875em;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--bs-font-monospace);
+  font-size: 1em;
+}
+
+.highlight pre code {
+  font-size: inherit;
+  color: var(--bs-body-color);
+  word-wrap: normal;
+}
+pre code {
+  font-size: inherit;
+  color: inherit;
+  word-break: normal;
+}
+code {
+  font-size: 0.875em;
+  color: var(--bs-code-color);
+  word-wrap: break-word;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--bs-font-monospace);
+  font-size: 1em;
+}
+
+.bd-masthead .btn-clipboard {
+  position: absolute;
+  top: -0.125rem;
+  right: 0;
+  background-color: transparent;
+}
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+.btn-clipboard {
+  position: relative;
+  z-index: 2;
+  margin-top: 0.75rem;
+  margin-right: 0.75rem;
+}
+.btn-clipboard,
+.btn-edit {
+  display: block;
+  padding: 0.5em;
+  line-height: 1;
+  color: var(--bs-body-color);
+  background-color: var(--bs-tertiary-bg);
+  border: 0;
+  border-radius: 0.25rem;
+}
+[type="button"],
+[type="reset"],
+[type="submit"],
+button {
+  -webkit-appearance: button;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+button {
+  border-radius: 0;
+}
+
+
+#carbonads {
+    position: static;
+    display: block;
+    max-width: 400px;
+    padding: 15px 15px 15px 160px;
+    margin: 2rem 0;
+    overflow: hidden;
+    font-size: .8125rem;
+    line-height: 1.4;
+    text-align: left;
+    background-color: var(--bs-tertiary-bg);
+}
+
+.bd-masthead #carbonads {
+    margin-inline: auto;
+}
+
+#carbonads {
+    border-radius: .5rem;
+}
+#carbonads {
+    position: static;
+    display: block;
+    max-width: 400px;
+    padding: 15px 15px 15px 160px;
+    margin: 2rem 0;
+    overflow: hidden;
+    font-size: .8125rem;
+    line-height: 1.4;
+    text-align: left;
+    background-color: var(--bs-tertiary-bg);
+}
