@@ -1,0 +1,145 @@
+@import "reset";
+@import "colors";
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 16px + 2px;
+}
+
+@mixin d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+@mixin border($color, $position: all) {
+  border: 2px solid darken($color, $amount: 10%);
+
+  @if $position != all {
+    border: none;
+    border-#{$position}: 2px solid darken($color, $amount: 10%);
+  }
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1280px;
+  margin: 1rem auto;
+}
+
+.header {
+  text: {
+    align: center;
+  }
+  color: darken($color: $myGreen, $amount: 20%);
+  background: {
+    color: lighten($color: $myGreen, $amount: 20%);
+  }
+  padding: 1rem 2rem;
+  @include border($myGreen, bottom);
+}
+
+.grid {
+  @include d-flex();
+}
+
+.grid {
+  > div {
+    @include d-flex();
+    flex-grow: 1;
+    gap: 1rem;
+    flex-direction: column;
+    width: 33.33%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    aspect-ratio: 4 / 3;
+    @include border(#000000);
+    background-color: lighten($color: #000000, $amount: 80%);
+    transition: all 150ms linear;
+    cursor: pointer;
+
+    > div {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: gray;
+      transition: all 150ms linear;
+      border-radius: 0.5rem;
+    }
+
+    p {
+      color: darken($color: black, $amount: 30%);
+      transition: all 150ms linear;
+    }
+
+    &:hover {
+      @include border($myGreen);
+      background-color: lighten($color: $myGreen, $amount: 20%);
+
+      > div {
+        background-color: $myGreen;
+      }
+
+      p {
+        color: darken($color: $myGreen, $amount: 30%);
+      }
+    }
+
+    &:active {
+      @include transform(scale(0.9));
+      @include border($myPink);
+      background-color: lighten($color: $myPink, $amount: 20%);
+
+      > div {
+        background-color: $myPink;
+      }
+
+      p {
+        color: darken($color: $myPink, $amount: 30%);
+      }
+    }
+  }
+  gap: 1rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  body{
+    font-size: 16px;
+  }
+
+  .header {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .grid {
+    flex-wrap: wrap;
+
+    > div {
+      width: 45%;
+    }
+  }
+}
+
+@media only screen and (max-width: 740px) {
+
+  .header {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .grid {
+    flex-direction: column;
+
+    > div {
+      width: 100%;
+    }
+  }
+}
