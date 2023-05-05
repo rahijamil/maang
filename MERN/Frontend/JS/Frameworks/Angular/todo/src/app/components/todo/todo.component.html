@@ -1,0 +1,60 @@
+<div class="app-todo">
+  <div>
+    <div class="title_wrapper" (click)="focusTitle()">
+      <div
+        contenteditable="true"
+        class="title"
+        spellcheck="true"
+        placeholder="Untitled"
+        (input)="onInput($event)"
+        #title
+      ></div>
+    </div>
+
+    <div class="todo_wrapper">
+      <div class="todo_container">
+        <ul class="todo_list">
+          <li
+            class="todo_item_wrapper"
+            (click)="focusTodoItem($event)"
+            *ngFor="let todo of pageData.todos"
+            [@fadeInAnimation]
+          >
+            <div class="todo_item">
+              <label>
+                <input
+                  type="checkbox"
+                  [checked]="todo.completed"
+                  (change)="updateTodo(todo, { completed: !todo.completed })"
+                />
+                <div class="checkbox">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+              </label>
+              <div
+                contenteditable="true"
+                class="todo_text"
+                [class.completed]="todo.completed"
+                (keyup.backspace)="deleteTodo($event, todo)"
+                (input)="count = 0"
+                (blur)="updateTodoText($event, todo)"
+              >
+                {{ todo.title }}
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="todo_input" (click)="focusAddTodo()">
+          <div
+            class="todo_contenteditable_div"
+            placeholder="Type here to add todo..."
+            contenteditable="true"
+            (input)="toggleTodoPlaceholder($event)"
+            (blur)="handleAddTodo($event)"
+            #todoInput
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

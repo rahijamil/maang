@@ -1,0 +1,51 @@
+<div class="app-sidebar">
+  <ul class="page_list">
+    <li *ngFor="let list of pageLists" class="page_item">
+      <a
+        class="page_link"
+        [class.active]="list.id == activeId"
+        routerLink="/new"
+        [queryParams]="{ id: list.id }"
+      >
+        <div>
+          <!-- <i class="fas fa-chevron-right"></i> -->
+          <div class="page_link_text">
+            <!-- <div>📌</div> -->
+            <span>{{ list.title }}</span>
+          </div>
+        </div>
+        <div class="more_icon_warpper">
+          <div class="more_icon" (click)="showMoreOption($event)">
+            <i class="fa-solid fa-ellipsis"></i>
+          </div>
+
+          <div class="more_list">
+            <ul>
+              <li>
+                <span>Delete</span>
+              </li>
+              <li>
+                <span>Add to Favorites</span>
+              </li>
+              <li>
+                <span>Copy Link</span>
+              </li>
+              <li>
+                <span>Rename</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+  <a class="add-page" (click)="addPage()">
+    <i class="fas fa-plus"></i>
+    <span>Add a page</span>
+  </a>
+
+  <a class="new-page" (click)="addPage()">
+    <i class="fas fa-plus"></i>
+    <span>New page</span>
+  </a>
+</div>

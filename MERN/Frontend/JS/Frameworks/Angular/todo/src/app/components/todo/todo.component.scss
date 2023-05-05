@@ -1,0 +1,144 @@
+@import "../../../partials//variables";
+@import "../../../partials/mixins";
+
+.app-todo {
+  padding: 6.5rem 0;
+  padding-bottom: 16rem;
+  max-height: calc(100vh - 50px);
+  overflow-y: scroll;
+
+  .title_wrapper {
+    cursor: text;
+
+    .title {
+      position: relative;
+      width: 90%;
+      max-width: 740px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: rgba(255, 255, 255, 0.81);
+      padding: 3px 2px;
+      min-height: 1em;
+      cursor: text;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+      outline: none;
+      margin: 0 auto;
+
+      &::after {
+        content: attr(placeholder);
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        color: rgb(55, 55, 55);
+      }
+
+      &.has-content::after {
+        display: none;
+      }
+    }
+  }
+
+  .todo_wrapper {
+    margin-top: 3rem;
+
+    .todo_container {
+      .todo_list {
+        list-style-type: none;
+        color: $light-gray;
+        font-size: 1rem;
+        cursor: text;
+
+        .todo_item_wrapper {
+          .todo_item {
+            width: 90%;
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 0.25rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            label {
+              .checkbox {
+                width: 1.05rem;
+                height: 1.05rem;
+                border: 2px solid $light-gray;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+
+                i {
+                  font-size: 0.8rem;
+                  width: 0.8rem;
+                  height: 0.8rem;
+                  visibility: hidden;
+                  color: white;
+                }
+              }
+
+              input {
+                display: none;
+
+                &:checked ~ .checkbox {
+                  background-color: #2383e2;
+                  border-color: transparent;
+                  i {
+                    visibility: visible;
+                  }
+                }
+              }
+            }
+
+            .todo_text {
+              @include compatibility(user-select, none);
+              cursor: text;
+              width: 100%;
+              outline: none;
+
+              &.completed {
+                text-decoration: line-through;
+                color: $gray-color;
+              }
+            }
+          }
+        }
+      }
+
+      .todo_input {
+        padding-top: 0.8rem;
+        cursor: text;
+
+        .todo_contenteditable_div {
+          width: 90%;
+          max-width: 740px;
+          margin: 0 auto;
+          position: relative;
+          background-color: transparent;
+          border: none;
+          outline: none;
+          color: rgba(255, 255, 255, 0.81);
+          padding: 2px 0;
+          font-size: 1rem;
+
+          &::after {
+            content: attr(placeholder);
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            color: $gray-color;
+            padding: 2px 0;
+          }
+
+          &.has-todo-content::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

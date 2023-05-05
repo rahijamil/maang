@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-todo-157a9": {
+      "hosting": {
+        "todo": [
+          "angular-todo-157a9"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-todo-157a9"
+  }
+}

@@ -1,0 +1,46 @@
+@import "../../../partials/variables";
+@import "../../../partials/mixins";
+
+.app-header {
+  padding: 0.7rem .9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $light-gray;
+
+  .title {
+    font-size: 13px;
+    padding: 3px;
+    border-radius: 3px;
+    @include compatibility(width, fit-content);
+    @include compatibility(user-select, none);
+    cursor: pointer;
+    transition: background-color 20ms ease-in 0s;
+
+    &:hover {
+      background-color: $hover;
+    }
+  }
+
+  .icon_wrapper {
+    display: flex;
+    align-items: center;
+    
+    .icon {
+      font-size: 1rem;
+      padding: 3px 0.5rem;
+      border-radius: 3px;
+      @include compatibility(user-select, none);
+      cursor: pointer;
+      transition: background-color 20ms ease-in 0s;
+
+      &:hover {
+        background-color: $hover;
+      }
+
+      span{
+        font-size: 13px;
+      }
+    }
+  }
+}

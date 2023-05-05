@@ -1,0 +1,22 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "Learning nodejs",
+  "main": "app.js",
+  "author": "Mohammad Rahi",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon start"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "formidable": "^2.1.1",
+    "mongodb": "^5.2.0",
+    "mysql2": "^3.2.0",
+    "nodemailer": "^6.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

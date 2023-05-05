@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./partials/variables";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: #474c50;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
